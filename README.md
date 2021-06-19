@@ -1,51 +1,51 @@
 # SortAlgorithms 排序算法
 - 冒泡排序
-        - 比较相邻的元素。如果第一个比第二个大，就交换它们两个；
-        - 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素应该会是最大的数；
-        - 针对所有的元素重复以上的步骤，除了最后一个；
-        - 重复步骤1~3，直到排序完成。
+    - 比较相邻的元素。如果第一个比第二个大，就交换它们两个；
+    - 对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素应该会是最大的数；
+    - 针对所有的元素重复以上的步骤，除了最后一个；
+    - 重复步骤1~3，直到排序完成。
 
-        ```java
-        public int[] sort(int[] array) {
-            System.out.println("Bubble Sort");
-            int n = array.length;
-            for(int i = 0; i < n; i++) {
-                for (int j = 1; j < n-i; j++) {
-                    if (array[j - 1] > array[j]) {
-                        int temp = array[j];
-                        array[j] = array[j - 1];
-                        array[j - 1] = temp;
-                    }
+    ```java
+    public int[] sort(int[] array) {
+        System.out.println("Bubble Sort");
+        int n = array.length;
+        for(int i = 0; i < n; i++) {
+            for (int j = 1; j < n-i; j++) {
+                if (array[j - 1] > array[j]) {
+                    int temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
                 }
             }
-            return array;
         }
-        ```
+        return array;
+    }
+    ```
 
 - 选择排序
-        - 初始状态：无序区为R[1..n]，有序区为空；
-        - 第i趟排序(i=1,2,3…n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1..i]和R[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；
-        - n-1趟结束，数组有序化了。
+    - 初始状态：无序区为R[1..n]，有序区为空；
+    - 第i趟排序(i=1,2,3…n-1)开始时，当前有序区和无序区分别为R[1..i-1]和R(i..n）。该趟排序从当前无序区中-选出关键字最小的记录 R[k]，将它与无序区的第1个记录R交换，使R[1..i]和R[i+1..n)分别变为记录个数增加1个的新有序区和记录个数减少1个的新无序区；
+    - n-1趟结束，数组有序化了。
 
-        ```java
-        public int[] sort(int[] array) {
-            System.out.println("Selection Sort");
-            int n = array.length;
-            int minIndex = 0;
-            for(int i = 0; i < n; i++) { // 0-i 是有序区
-                minIndex = i;
-                for (int j = i+1; j < n; j++) { // 找到无序区中最小的数
-                    if(array[j] < array[minIndex]){
-                        minIndex = j;
-                    }
+    ```java
+    public int[] sort(int[] array) {
+        System.out.println("Selection Sort");
+        int n = array.length;
+        int minIndex = 0;
+        for(int i = 0; i < n; i++) { // 0-i 是有序区
+            minIndex = i;
+            for (int j = i+1; j < n; j++) { // 找到无序区中最小的数
+                if(array[j] < array[minIndex]){
+                    minIndex = j;
                 }
-                int temp = array[i];
-                array[i] = array[minIndex];
-                array[minIndex] = temp;
             }
-            return array;
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
         }
-        ```
+        return array;
+    }
+    ```
 
 - 插入排序
     - 从第一个元素开始，该元素可以认为已经被排序；
